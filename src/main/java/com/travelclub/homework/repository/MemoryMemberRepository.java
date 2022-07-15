@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
+import java.util.stream.IntStream;
 
 import com.travelclub.homework.domain.Member;
 
@@ -27,9 +29,12 @@ public class MemoryMemberRepository implements MemberRepository{
 
 	@Override
 	public Optional<Member> findByName(String name) {
+		
 		return  store.values().stream()
 							.filter(member -> member.getName().equals(name))
 							.findAny();
+		
+		
 		
 	}
 
