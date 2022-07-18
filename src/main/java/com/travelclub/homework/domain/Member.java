@@ -3,6 +3,7 @@ package com.travelclub.homework.domain;
 public class Member {
 	private Long id;
 	private String name;
+	
 	public String getName() {
 		return name;
 	}

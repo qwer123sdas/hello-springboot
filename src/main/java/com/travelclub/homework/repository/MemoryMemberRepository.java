@@ -8,8 +8,9 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import com.travelclub.homework.domain.Member;
+import org.springframework.stereotype.Repository;
 
+import com.travelclub.homework.domain.Member;
 public class MemoryMemberRepository implements MemberRepository{
 	
 	private static Map<Long, Member> store = new HashMap<>(); 
