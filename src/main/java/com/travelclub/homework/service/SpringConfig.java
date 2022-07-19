@@ -1,13 +1,25 @@
 package com.travelclub.homework.service;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.travelclub.homework.repository.JdbcMemberRepository;
 import com.travelclub.homework.repository.MemberRepository;
 import com.travelclub.homework.repository.MemoryMemberRepository;
 
 @Configuration
 public class SpringConfig {
+	
+	private DataSource dataSource;
+	
+	@Autowired
+	public SpringConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+	
 	@Bean
 	public MemberService memberService() {
 		return new MemberService(memberRepository());  // 스프링 빈을 등록하고, 등록되어 잇는 레파지토리를 
@@ -16,6 +28,7 @@ public class SpringConfig {
 	
 	@Bean
 	public MemberRepository memberRepository() {
-		return new MemoryMemberRepository();
+		// return new MemoryMemberRepository();
+		return new JdbcMemberRepository(dataSource);
 	}
 }
