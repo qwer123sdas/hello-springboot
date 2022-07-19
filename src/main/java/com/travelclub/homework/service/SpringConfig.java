@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.travelclub.homework.repository.JdbcMemberRepository;
+import com.travelclub.homework.repository.JdbcTemplateMemberRepository;
 import com.travelclub.homework.repository.MemberRepository;
 import com.travelclub.homework.repository.MemoryMemberRepository;
 
@@ -29,6 +30,7 @@ public class SpringConfig {
 	@Bean
 	public MemberRepository memberRepository() {
 		// return new MemoryMemberRepository();
-		return new JdbcMemberRepository(dataSource);
+		// return new JdbcMemberRepository(dataSource);
+		return new JdbcTemplateMemberRepository(dataSource);
 	}
 }
