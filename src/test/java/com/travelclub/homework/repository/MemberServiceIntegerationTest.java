@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.travelclub.homework.domain.Member;
@@ -22,11 +23,11 @@ class MemberServiceIntegerationTest {
 	@Autowired
 	MemberRepository memberRepository;
 
-	@Test
+	@Test //@Commit 을 사용하면 @Transactional을 해도 db에 데이터가 들어가게 된다.
 	public void 회원가입() throws Exception {
 		// Given
 		Member member = new Member();
-		member.setName("hello");
+		member.setName("hello!!!!!1");
 		// When
 		Long saveId = memberService.join(member);
 		// Then
